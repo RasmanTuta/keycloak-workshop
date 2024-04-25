@@ -13,7 +13,8 @@ By attending this workshop, you will learn how to get Keycloak running with dock
 * Java 17 JDK or newer
 * Maven
 * Postman
-* Terraform
+
+
 ## Keycloak 
 * Short intro to KeyCloak
 ## OAuth2 / Open ID Connect
