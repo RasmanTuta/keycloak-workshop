@@ -20,7 +20,7 @@ public class ClaimsMapper extends AbstractOIDCProtocolMapper implements OIDCAcce
     static Random rand = new Random();
 
     public static final String PROVIDER_ID = "Secret-Fruit-Mapper";
-    private static List<String> secretFruits = List.of("Strawberry", "Mango", "Dragon Fruit");
+    private static final List<String> secretFruits = List.of("Strawberry", "Mango", "Dragon Fruit");
 
     @Override
     public String getDisplayCategory() {
@@ -49,7 +49,7 @@ public class ClaimsMapper extends AbstractOIDCProtocolMapper implements OIDCAcce
 
     @Override
     public AccessToken transformAccessToken(AccessToken token, ProtocolMapperModel mappingModel, KeycloakSession session, UserSessionModel userSession, ClientSessionContext clientSessionCtx) {
-        token.getOtherClaims().put("secret-fruit", secretFruits.get(rand.nextInt(3)));
+        token.getOtherClaims().put("secret-fruit", secretFruits.get(rand.nextInt(secretFruits.size())));
 
         setClaim(token, mappingModel, userSession, session, clientSessionCtx);
         return token;
